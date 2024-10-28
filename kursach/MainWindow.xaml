@@ -1,0 +1,119 @@
+﻿<Window x:Class="kursach.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:kursach"
+       
+        WindowStartupLocation="CenterScreen" 
+        WindowStyle="None"
+        AllowsTransparency="True" 
+        Background="Transparent" 
+         Height="500" 
+         Width="789">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="1.5*" />
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/close.png" Grid.Column="1" Panel.ZIndex="1" MouseUp="Image_MouseUp" Style="{StaticResource imgClose}" Margin="0,4,22,0"/>
+
+        <Border CornerRadius="10 0 0 10" Grid.ColumnSpan="2" Margin="0,0,419,0">
+            <Border.Background>
+                <ImageBrush ImageSource="/Images/photo_2024-04-27_22-31-37.jpg"/>
+            </Border.Background>
+
+            <Grid>
+                <Canvas>
+                    <Polygon Points="0,20 230,140 0,270" Fill="#FF2A233F" Opacity="0.6" />
+                    <Polygon Points="100,400 200,370 180,470" Fill="#FF412F51" Opacity="0.6" Canvas.Left="163" Canvas.Top="30" />
+                    <TextBlock Style="{StaticResource TitleText}" Height="120" Width="362" HorizontalAlignment="Left" Canvas.Left="1" Canvas.Top="138" VerticalAlignment="Top" ><Run Text="Склад ">
+    <Run.Foreground>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFB0BAD4"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+    </Run.Foreground>
+</Run><LineBreak/><Run Text="оптовой торговли">
+    <Run.Foreground>
+        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FFE2DEDE"/>
+            <GradientStop Color="#FFC3C0F9" Offset="1"/>
+        </LinearGradientBrush>
+    </Run.Foreground>
+</Run></TextBlock>
+                </Canvas>
+
+                <StackPanel VerticalAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Background="White" Grid.Column="1" CornerRadius="0 10 10 0" Margin="54,0,18,0">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Sign in to App" Style="{StaticResource TitleText}" >
+                    <TextBlock.Foreground>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF3F228D" Offset="0.024"/>
+                            <GradientStop Color="#FF6D39FF" Offset="1"/>
+                        </LinearGradientBrush>
+                    </TextBlock.Foreground>
+                </TextBlock>
+                <StackPanel Orientation="Horizontal" Margin="0 20" HorizontalAlignment="Center"/>
+
+                <TextBlock Text="use your email info :" Margin="0 10 0 15" Foreground="#878787" Style="{StaticResource NormalText}" />
+
+                <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Images/Email.png" Height="20" />
+                        <TextBlock x:Name="Login"  Text="" Style="{StaticResource textHint}" />
+                        <TextBox Name="Log" KeyUp="Log_KeyUp" Style="{StaticResource textBox}" />
+                    </Grid>
+                </Border>
+
+                <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Images/Lock.png" Height="20" />
+                        <TextBlock x:Name="Password" Text="" Style="{StaticResource textHint}" />
+                        <PasswordBox x:Name="Pass" KeyUp="Pass_KeyUp"  Style="{StaticResource textBox}" />
+                    </Grid>
+                </Border>
+
+                <!-- Вставляем TextBox для кода в этот Border -->
+                <Border BorderBrush="#ACB0AF" BorderThickness="1" Margin="70 7" CornerRadius="5">
+                    <TextBox Name="Code" Height="30" Width="296" FontSize="20" FontWeight="DemiBold" Opacity="0.3">
+                        <TextBox.Resources>
+                            <Style TargetType="Border">
+                                <Setter Property="CornerRadius" Value="10"/>
+                            </Style>
+                        </TextBox.Resources>
+                    </TextBox>
+                </Border>
+
+                <Button Content="Sign In" Click="Login_Click" Style="{StaticResource mainButton}" Foreground="White" >
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF0B116C"/>
+                            <GradientStop Color="#FF313798" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+
+                </Button>
+            </StackPanel>
+        </Border>
+        <Button x:Name="Refresh" Width="30" Height="27" Click="Refresh_Click" Grid.Column="1" Margin="376,324,36,148">
+            <Image Source="/Resources/free-icon-refresh-875100.png" Height="24" RenderTransformOrigin="0.5,0.5" Width="26" OpacityMask="Gray" />
+        </Button>
+    </Grid>
+
+</Window>
